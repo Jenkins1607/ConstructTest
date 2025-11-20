@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Setup Guide - [Site purpose]</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section h2 {
+            color: #667eea;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid #667eea;
+        }
+
+        .step {
+            background: #f8f9fa;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+
+        .step h3 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .step code {
+            background: #e9ecef;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            color: #d63384;
+        }
+
+        .checklist {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .checklist li {
+            padding: 10px;
+            margin-bottom: 8px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            position: relative;
+            padding-left: 40px;
+        }
+
+        .checklist li:before {
+            content: "✓";
+            position: absolute;
+            left: 12px;
+            color: #28a745;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .alert {
+            padding: 15px 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .alert-info {
+            background: #d1ecf1;
+            border-left: 4px solid #0c5460;
+            color: #0c5460;
+        }
+
+        .alert-warning {
+            background: #fff3cd;
+            border-left: 4px solid #856404;
+            color: #856404;
+        }
+
+        .alert-success {
+            background: #d4edda;
+            border-left: 4px solid #155724;
+            color: #155724;
+        }
+
+        .file-tree {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 20px;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+
+        .file-tree .folder {
+            color: #66d9ef;
+        }
+
+        .file-tree .file {
+            color: #a6e22e;
+        }
+
+        .file-tree .comment {
+            color: #75715e;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+
+        .btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #e9ecef;
+        }
+
+        footer {
+            background: #2d2d2d;
+            color: white;
+            padding: 20px 40px;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>🚀 Website Project Setup Guide</h1>
+            <p>Complete, production-ready website with HTML, CSS, JavaScript & PHP</p>
+        </header>
+
+        <div class="content">
+            <div class="alert alert-success">
+                <strong>✓ Project!</strong><br>
+                All files ready for customization.
+            </div>
+
+            <!-- Project Structure -->
+            <div class="section">
+                <h2>📁 Project Structure</h2>
+                <div class="file-tree">
+                    <span class="folder">TEST CODE/</span>
+                    │
+                    ├── <span class="file">index.html</span> <span class="comment"># Homepage</span>
+                    ├── <span class="file">about.html</span> <span class="comment"># About page</span>
+                    ├── <span class="file">services.html</span> <span class="comment"># Services page</span>
+                    ├── <span class="file">portfolio.html</span> <span class="comment"># Portfolio/Gallery</span>
+                    ├── <span class="file">contact.html</span> <span class="comment"># Contact form</span>
+                    │
+                    ├── <span class="folder">css/</span>
+                    │ └── <span class="file">styles.css</span> <span class="comment"># Main stylesheet</span>
+                    │
+                    ├── <span class="folder">js/</span>
+                    │ └── <span class="file">app.js</span> <span class="comment"># JavaScript functionality</span>
+                    │
+                    ├── <span class="folder">php/</span>
+                    │ └── <span class="file">contact.php</span> <span class="comment"># Backend form handler</span>
+                    │
+                    ├── <span class="folder">db/</span>
+                    │ └── <span class="file">db.sql</span> <span class="comment"># Database schema</span>
+                    │
+                    ├── <span class="folder">assets/</span>
+                    │ └── <span class="folder">images/</span> <span class="comment"># Image assets</span>
+                    │
+                    ├── <span class="folder">logs/</span> <span class="comment"># Error logs</span>
+                    │
+                    ├── <span class="file">.gitignore</span> <span class="comment"># Git ignore rules</span>
+                    ├── <span class="file">README.md</span> <span class="comment"># Full documentation</span>
+                    └── <span class="file">PROJECT_SUMMARY.txt</span> <span class="comment"># Quick reference</span>
+                </div>
+            </div>
+
+            <!-- Quick Setup -->
+            <div class="section">
+                <h2>⚡ Quick Setup (5 Steps)</h2>
+
+                <div class="step">
+                    <h3>Step 1: Customize Colors</h3>
+                    <p>Open <code>css/styles.css</code> and replace these placeholders (lines 6-9):</p>
+                    <ul>
+                        <li><code>[Primary color hex]</code> → Your primary color (e.g., #3498db)</li>
+                        <li><code>[Accent color hex]</code> → Your accent color (e.g., #e74c3c)</li>
+                        <li><code>[Neutral color hex]</code> → Your neutral color (e.g., #2c3e50)</li>
+                    </ul>
+                </div>
+
+                <div class="step">
+                    <h3>Step 2: Update Site Purpose</h3>
+                    <p>Find and replace <code>[Site purpose]</code> in all HTML files with your actual site name.</p>
+                </div>
+
+                <div class="step">
+                    <h3>Step 3: Install XAMPP</h3>
+                    <p>Download from <code>https://www.apachefriends.org/</code> and install. Start Apache and MySQL.
+                    </p>
+                </div>
+
+                <div class="step">
+                    <h3>Step 4: Setup Database</h3>
+                    <ol style="margin-left: 20px;">
+                        <li>Open <code>http://localhost/phpmyadmin</code></li>
+                        <li>Click "Import" and select <code>db/db.sql</code></li>
+                        <li>Update database credentials in <code>php/contact.php</code></li>
+                    </ol>
+                </div>
+
+                <div class="step">
+                    <h3>Step 5: Add Your Images</h3>
+                    <p>Place your images in <code>assets/images/</code>:</p>
+                    <ul>
+                        <li>placeholder.jpg</li>
+                        <li>about-placeholder.jpg</li>
+                        <li>team-1.jpg, team-2.jpg, team-3.jpg</li>
+                        <li>portfolio-1.jpg through portfolio-9.jpg</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Features -->
+            <div class="section">
+                <h2>✨ Features Included</h2>
+                <ul class="checklist">
+                    <li>Responsive mobile-first design</li>
+                    <li>Semantic HTML5 with accessibility</li>
+                    <li>CSS Variables for easy theming</li>
+                    <li>Mobile hamburger menu</li>
+                    <li>Client-side form validation</li>
+                    <li>Lazy loading for images</li>
+                    <li>PHP backend with PDO</li>
+                    <li>SQL injection prevention</li>
+                    <li>XSS attack prevention</li>
+                    <li>CSRF token protection</li>
+                    <li>Error logging system</li>
+                    <li>JSON API responses</li>
+                </ul>
+            </div>
+
+            <!-- Security -->
+            <div class="section">
+                <h2>🔐 Security Features</h2>
+                <div class="alert alert-info">
+                    <strong>Built with security in mind:</strong><br>
+                    ✓ Prepared statements (PDO) prevent SQL injection<br>
+                    ✓ Input sanitization prevents XSS attacks<br>
+                    ✓ CSRF token validation<br>
+                    ✓ Input length limits<br>
+                    ✓ Server-side validation<br>
+                    ✓ Secure error logging
+                </div>
+            </div>
+
+            <!-- Testing -->
+            <div class="section">
+                <h2>🧪 Testing Locally</h2>
+                <div class="alert alert-warning">
+                    <strong>Before testing:</strong><br>
+                    1. Copy this entire folder to <code>C:\xampp\htdocs\</code><br>
+                    2. Ensure Apache and MySQL are running in XAMPP<br>
+                    3. Import the database using phpMyAdmin<br>
+                    4. Visit <code>http://localhost/TEST CODE/</code>
+                </div>
+            </div>
+
+            <!-- Navigation -->
+            <div class="nav-buttons">
+                <a href="index.html" class="btn">🏠 View Homepage</a>
+                <a href="about.html" class="btn">👥 About Page</a>
+                <a href="services.html" class="btn">💼 Services</a>
+                <a href="portfolio.html" class="btn">🎨 Portfolio</a>
+                <a href="contact.html" class="btn">📧 Contact</a>
+                <a href="README.md" class="btn" style="background: #28a745;">📖 Full Documentation</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2025 Website Project. Built with modern web development best practices.</p>
+        </footer>
+    </div>
+</body>
+
+</html>
