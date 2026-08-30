@@ -523,6 +523,22 @@ body.theme-dark .theme-icon-moon {
     color: var(--primary);
 }
 
+.project-categories {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.project-categories li {
+    padding: var(--spacing-xs) 0;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+}
+
+.project-categories li:last-child {
+    border-bottom: none;
+}
+
 .footer-bottom {
     text-align: center;
     padding-top: var(--spacing-md);
