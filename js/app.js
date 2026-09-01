@@ -417,15 +417,16 @@ function initContactForm() {
 }
 
 // ============================================
-// PORTFOLIO FILTER (OPTIONAL ENHANCEMENT)
+// PORTFOLIO GALLERY TAB SWITCHING (FOTORAMA)
 // ============================================
 
 /**
- * Initialize portfolio filtering functionality
+ * Initialize portfolio gallery tab switching for Electrical and Plumbing
  */
 function initPortfolioFilter() {
     const filterButtons = document.querySelectorAll('.filter-btn');
-    const portfolioItems = document.querySelectorAll('.portfolio-item');
+    const electricalGallery = document.getElementById('electrical-gallery');
+    const plumbingGallery = document.getElementById('plumbing-gallery');
 
     if (filterButtons.length === 0) return;
 
@@ -440,23 +441,14 @@ function initPortfolioFilter() {
             // Get filter value
             const filterValue = this.dataset.filter;
 
-            // Filter portfolio items
-            portfolioItems.forEach(item => {
-                if (filterValue === 'all' || item.dataset.category === filterValue) {
-                    item.style.display = 'block';
-                    // Trigger reflow for animation
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1)';
-                    }, 10);
-                } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 300);
-                }
-            });
+            // Show/hide galleries based on selection
+            if (filterValue === 'electrical') {
+                if (electricalGallery) electricalGallery.classList.add('active');
+                if (plumbingGallery) plumbingGallery.classList.remove('active');
+            } else if (filterValue === 'plumbing') {
+                if (electricalGallery) electricalGallery.classList.remove('active');
+                if (plumbingGallery) plumbingGallery.classList.add('active');
+            }
         });
     });
 }
