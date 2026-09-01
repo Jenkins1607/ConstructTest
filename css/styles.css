@@ -593,59 +593,116 @@ body.theme-dark .theme-icon-moon {
     box-shadow: var(--shadow-glow);
 }
 
+/* Portfolio Grid - Professional Full-Width Gallery */
 .portfolio-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: var(--spacing-lg);
+    /* Ровно 5 колонок на всю ширину экрана для десктопа */
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2px; /* Минимальный зазор для эффекта "единого полотна" */
+    width: 100%;
 }
 
 .portfolio-item {
     position: relative;
     overflow: hidden;
-    border-radius: var(--radius-xl);
-    box-shadow: var(--shadow-md);
-    transition: all var(--transition-normal);
-    background: var(--surface);
+    border-radius: 0; /* Строгие края для профессионального вида */
+    cursor: pointer;
+    /* Квадратные ячейки для максимального размера фото */
+    aspect-ratio: 1/1;
+    box-shadow: none;
+    transition: transform 0.3s ease, z-index 0s 0.3s;
+    background: #000;
 }
 
+/* При наведении увеличиваем масштаб и поднимаем слой */
 .portfolio-item:hover {
-    transform: translateY(-10px) scale(1.02);
-    box-shadow: var(--shadow-lg), var(--shadow-glow);
+    transform: scale(1.03);
+    z-index: 10;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, z-index 0s;
 }
 
-.portfolio-image {
-    position: relative;
-    overflow: hidden;
-    aspect-ratio: 16/10;
-}
-
-.portfolio-placeholder {
+.portfolio-item img {
     width: 100%;
     height: 100%;
+    object-fit: cover; /* Фото заполняет всю область без искажений */
+    transition: transform 0.6s ease, filter 0.3s ease;
+    display: block;
+    filter: brightness(0.95);
+}
+
+.portfolio-item:hover img {
+    transform: scale(1.1); /* Более выраженный зум при наведении */
+    filter: brightness(1.1);
+}
+
+/* Оверлей с иконкой просмотра */
+.portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.8) 100%);
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: var(--transition-slow);
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
-.portfolio-item:hover .portfolio-placeholder {
-    transform: scale(1.05);
+.portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
 }
 
-.portfolio-placeholder svg {
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
-}
-
-.portfolio-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.7), transparent);
+.view-icon {
+    font-size: 3rem;
     color: white;
-    padding: var(--spacing-lg);
-    transform: translateY(100%);
-    transition: var(--transition-normal);
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
+}
+
+/* Адаптивность: количество колонок меняется в зависимости от ширины */
+/* Большие экраны - 5 колонок (по умолчанию выше) */
+@media (min-width: 1600px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 3px;
+    }
+}
+
+/* Экраны поменьше - 4 колонки */
+@media (max-width: 1599px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Планшеты горизонтальные - 3 колонки */
+@media (max-width: 1200px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 4px;
+    }
+}
+
+/* Планшеты вертикальные - 2 колонки */
+@media (max-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 6px;
+    }
+}
+
+/* Мобильные устройства - 1 колонка (фото во всю ширину) */
+@media (max-width: 480px) {
+    .portfolio-grid {
+        grid-template-columns: 1fr;
+        gap: 8px;
+    }
+
+    .portfolio-item {
+        aspect-ratio: 16/9; /* На мобильном лучше широкий формат для детализации */
+    }
 }
 
 .portfolio-item:hover .portfolio-overlay {
