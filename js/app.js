@@ -123,6 +123,11 @@ function initGalleryFilter() {
                 category.style.opacity = '0';
             }
         });
+        
+        // Переинициализируем лайтбокс для новой категории
+        setTimeout(() => {
+            initLightbox();
+        }, 300);
     }
     
     // Обработчики для кнопок фильтров
@@ -131,6 +136,18 @@ function initGalleryFilter() {
             filterGallery(this.dataset.filter);
         });
     });
+    
+    // Инициализация при загрузке - показываем первую категорию
+    if (galleryCategories.length > 0) {
+        const firstCategory = galleryCategories[0];
+        galleryCategories.forEach(category => {
+            if (category === firstCategory) {
+                category.style.display = 'grid';
+            } else {
+                category.style.display = 'none';
+            }
+        });
+    }
     
     // Обработчики для ссылок в футере
     categoryLinks.forEach(link => {
@@ -231,13 +248,25 @@ function initLightbox() {
     
     // Обработчики для изображений галереи
     function initGalleryItems() {
-        const activeCategory = document.querySelector('.gallery-category[style="display: grid;"], .gallery-category:not([style*="display: none"])');
+        // Находим активную категорию
+        const activeCategory = Array.from(galleryCategories).find(
+            category => category.style.display !== 'none' && category.style.display !== ''
+        );
+        
         if (!activeCategory) return;
         
         const galleryItems = activeCategory.querySelectorAll('.gallery-item');
         const images = Array.from(galleryItems).map(item => item.dataset.src);
         
+        // Удаляем старые обработчики (клонируем элементы)
         galleryItems.forEach(item => {
+            const newItem = item.cloneNode(true);
+            item.parentNode.replaceChild(newItem, item);
+        });
+        
+        // Добавляем новые обработчики
+        const newGalleryItems = activeCategory.querySelectorAll('.gallery-item');
+        newGalleryItems.forEach(item => {
             item.addEventListener('click', function() {
                 const img = this.querySelector('img');
                 const src = this.dataset.src;
@@ -248,7 +277,6 @@ function initLightbox() {
     }
     
     // Переинициализация при переключении фильтров
-    const filterButtons = document.querySelectorAll('.filter-btn');
     filterButtons.forEach(button => {
         button.addEventListener('click', function() {
             setTimeout(initGalleryItems, 300);
