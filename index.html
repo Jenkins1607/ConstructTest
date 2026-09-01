@@ -1,13 +1,13 @@
-<!-- UPDATED: Added theme support and dark mode toggle -->
+<!-- Portfolio - Single Page Website -->
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="[Site purpose] - Welcome to our homepage">
+    <meta name="description" content="Portfolio showcasing our best work and successful projects">
     <meta name="color-scheme" content="light dark">
-    <title>Home - [Site purpose]</title>
+    <title>Portfolio</title>
     <link rel="stylesheet" href="css/styles.css">
 </head>
 
@@ -30,11 +30,7 @@
                 <!-- Main navigation -->
                 <nav class="main-nav">
                     <ul class="nav-list">
-                        <li><a href="index.html" class="active">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#portfolio" class="active">Portfolio</a></li>
                     </ul>
                 </nav>
 
@@ -57,80 +53,139 @@
         </div>
     </header>
 
-    <!-- Hero section -->
-    <section class="hero">
+    <!-- Page header -->
+    <section class="page-header">
         <div class="container">
-            <div class="hero-content">
-                <h2 class="hero-title">Welcome to [Site purpose]</h2>
-                <p class="hero-subtitle">Delivering excellence and innovation in everything we do</p>
-                <a href="contact.html" class="btn btn-primary">Get Started</a>
+            <h2>Our Portfolio</h2>
+            <p>Showcasing our best work and successful projects</p>
+        </div>
+    </section>
+
+    <!-- Portfolio gallery section -->
+    <section class="portfolio-section" id="portfolio">
+        <div class="container">
+            <!-- Portfolio filter buttons -->
+            <div class="portfolio-filters">
+                <button class="filter-btn active" data-filter="electrical">Электромонтаж</button>
+                <button class="filter-btn" data-filter="plumbing">Сантехника</button>
+            </div>
+
+            <!-- Portfolio grid with photo galleries -->
+            <div class="portfolio-grid" id="gallery-container">
+
+                <!-- Electrical Gallery -->
+                <div class="gallery-category" data-category="electrical">
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800">
+                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400" alt="Электромонтаж - Щиток">
+                        <div class="gallery-overlay">
+                            <span>📷 Электрощит</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1558402529-d2638a7023e9?w=800">
+                        <img src="https://images.unsplash.com/photo-1558402529-d2638a7023e9?w=400" alt="Электромонтаж - Проводка">
+                        <div class="gallery-overlay">
+                            <span>📷 Проводка</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800">
+                        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400" alt="Электромонтаж - Освещение">
+                        <div class="gallery-overlay">
+                            <span>📷 Освещение</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1565514020125-69b878d6c8e0?w=800">
+                        <img src="https://images.unsplash.com/photo-1565514020125-69b878d6c8e0?w=400" alt="Электромонтаж - Розетки">
+                        <div class="gallery-overlay">
+                            <span>📷 Розетки</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=800">
+                        <img src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=400" alt="Электромонтаж - Кабели">
+                        <div class="gallery-overlay">
+                            <span>📷 Кабели</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1581092921461-eab62e97a782?w=800">
+                        <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a782?w=400" alt="Электромонтаж - Инструменты">
+                        <div class="gallery-overlay">
+                            <span>📷 Инструменты</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Plumbing Gallery -->
+                <div class="gallery-category" data-category="plumbing">
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800">
+                        <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=400" alt="Сантехника - Ванная">
+                        <div class="gallery-overlay">
+                            <span>📷 Ванная комната</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1584622050111-993a426fbf0a?w=800">
+                        <img src="https://images.unsplash.com/photo-1584622050111-993a426fbf0a?w=400" alt="Сантехника - Раковина">
+                        <div class="gallery-overlay">
+                            <span>📷 Раковина</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1595846519845-68e2eb5bcc09?w=800">
+                        <img src="https://images.unsplash.com/photo-1595846519845-68e2eb5bcc09?w=400" alt="Сантехника - Трубы">
+                        <div class="gallery-overlay">
+                            <span>📷 Трубы</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1604014237344-00aa9b0e0c15?w=800">
+                        <img src="https://images.unsplash.com/photo-1604014237344-00aa9b0e0c15?w=400" alt="Сантехника - Душ">
+                        <div class="gallery-overlay">
+                            <span>📷 Душевая</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=800">
+                        <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=400" alt="Сантехника - Смеситель">
+                        <div class="gallery-overlay">
+                            <span>📷 Смеситель</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1581244277943-fe4a9877db56?w=800">
+                        <img src="https://images.unsplash.com/photo-1581244277943-fe4a9877db56?w=400" alt="Сантехника - Кухня">
+                        <div class="gallery-overlay">
+                            <span>📷 Кухня</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
-    <!-- Features section -->
-    <section class="features">
-        <div class="container">
-            <h2 class="section-title">Why Choose Us</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🚀</div>
-                    <h3>Fast & Reliable</h3>
-                    <p>We deliver high-quality results with speed and precision</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">💡</div>
-                    <h3>Innovative Solutions</h3>
-                    <p>Creative approaches to solve your unique challenges</p>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Results Driven</h3>
-                    <p>Focused on achieving measurable outcomes for your success</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to action section -->
-    <section class="cta">
-        <div class="container">
-            <h2>Ready to Get Started?</h2>
-            <p>Contact us today to discuss your project and see how we can help</p>
-            <a href="contact.html" class="btn btn-secondary">Contact Us</a>
-        </div>
-    </section>
+    <!-- Lightbox Modal for Image Viewing -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="Закрыть">&times;</button>
+        <button class="lightbox-prev" aria-label="Предыдущее фото">&#10094;</button>
+        <button class="lightbox-next" aria-label="Следующее фото">&#10095;</button>
+        <img class="lightbox-image" src="" alt="">
+        <div class="lightbox-caption"></div>
+    </div>
 
     <!-- Footer -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>About Us</h3>
-                    <p>We are dedicated to providing exceptional service and quality work.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="portfolio.html">Portfolio</a></li>
+                    <h3>All Projects</h3>
+                    <p>Categories of construction works</p>
+                    <ul class="project-categories">
+                        <li><a href="#" data-category="electrical">Электромонтаж</a></li>
+                        <li><a href="#" data-category="plumbing">Сантехника</a></li>
                     </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
-                    <p>Email: info@example.com</p>
-                    <p>Phone: (123) 456-7890</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 [Site purpose]. All rights reserved.</p>
+                <p>&copy; 2025 Portfolio. All rights reserved.</p>
             </div>
         </div>
     </footer>
 
-    <!-- UPDATED: Sticky mobile theme toggle -->
+    <!-- Sticky mobile theme toggle -->
     <button class="theme-toggle-mobile" id="themeToggleMobile" aria-label="Toggle dark mode" aria-pressed="false">
         <svg class="theme-icon theme-icon-sun" width="24" height="24" viewBox="0 0 20 20" fill="none"
             xmlns="http://www.w3.org/2000/svg">
@@ -145,6 +200,11 @@
                 stroke-width="2" stroke-linejoin="round" />
         </svg>
     </button>
+
+    <!-- Fotorama -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fotorama/4.6.4/fotorama.js"></script>
 
     <!-- JavaScript -->
     <script src="js/app.js"></script>
