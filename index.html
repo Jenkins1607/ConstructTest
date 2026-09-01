@@ -66,179 +66,105 @@
         <div class="container">
             <!-- Portfolio filter buttons -->
             <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">Все проекты</button>
-                <button class="filter-btn" data-filter="electrical">Электромонтаж</button>
+                <button class="filter-btn active" data-filter="electrical">Электромонтаж</button>
                 <button class="filter-btn" data-filter="plumbing">Сантехника</button>
             </div>
 
-            <!-- Portfolio grid with real demo projects -->
-            <div class="portfolio-grid">
+            <!-- Portfolio grid with photo galleries -->
+            <div class="portfolio-grid" id="gallery-container">
 
-                <!-- Project 1: Electrical Installation -->
-                <article class="portfolio-item" data-category="electrical">
-                    <div class="portfolio-image">
-                        <div class="portfolio-placeholder"
-                            style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);">
-                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
-                            </svg>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <h3>⚡ Электромонтаж в квартире</h3>
-                            <p>Полная замена электропроводки в трехкомнатной квартире. Установка розеток, выключателей, щитка.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Проводка</span>
-                                <span class="tag">Щиток</span>
-                                <span class="tag">Розетки</span>
-                            </div>
+                <!-- Electrical Gallery -->
+                <div class="gallery-category" data-category="electrical">
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800">
+                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400" alt="Электромонтаж - Щиток">
+                        <div class="gallery-overlay">
+                            <span>📷 Электрощит</span>
                         </div>
                     </div>
-                    <div class="portfolio-info">
-                        <h4>Электромонтаж в квартире</h4>
-                        <p class="portfolio-category">Жилой объект</p>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1558402529-d2638a7023e9?w=800">
+                        <img src="https://images.unsplash.com/photo-1558402529-d2638a7023e9?w=400" alt="Электромонтаж - Проводка">
+                        <div class="gallery-overlay">
+                            <span>📷 Проводка</span>
+                        </div>
                     </div>
-                </article>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=800">
+                        <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?w=400" alt="Электромонтаж - Освещение">
+                        <div class="gallery-overlay">
+                            <span>📷 Освещение</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1565514020125-69b878d6c8e0?w=800">
+                        <img src="https://images.unsplash.com/photo-1565514020125-69b878d6c8e0?w=400" alt="Электромонтаж - Розетки">
+                        <div class="gallery-overlay">
+                            <span>📷 Розетки</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=800">
+                        <img src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=400" alt="Электромонтаж - Кабели">
+                        <div class="gallery-overlay">
+                            <span>📷 Кабели</span>
+                        </div>
+                    </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1581092921461-eab62e97a782?w=800">
+                        <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a782?w=400" alt="Электромонтаж - Инструменты">
+                        <div class="gallery-overlay">
+                            <span>📷 Инструменты</span>
+                        </div>
+                    </div>
+                </div>
 
-                <!-- Project 2: Electrical Panel Installation -->
-                <article class="portfolio-item" data-category="electrical">
-                    <div class="portfolio-image">
-                        <div class="portfolio-placeholder"
-                            style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
-                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                <rect x="4" y="2" width="16" height="20" rx="2" />
-                                <line x1="4" y1="10" x2="20" y2="10" />
-                                <circle cx="8" cy="6" r="1" fill="white" />
-                                <circle cx="12" cy="6" r="1" fill="white" />
-                                <circle cx="16" cy="6" r="1" fill="white" />
-                            </svg>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <h3>🔌 Сборка электрощита</h3>
-                            <p>Монтаж и сборка распределительного щита для частного дома. Установка автоматов, УЗО, реле напряжения.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Щиток</span>
-                                <span class="tag">Автоматы</span>
-                                <span class="tag">УЗО</span>
-                            </div>
+                <!-- Plumbing Gallery -->
+                <div class="gallery-category" data-category="plumbing" style="display: none;">
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=800">
+                        <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=400" alt="Сантехника - Ванная">
+                        <div class="gallery-overlay">
+                            <span>📷 Ванная комната</span>
                         </div>
                     </div>
-                    <div class="portfolio-info">
-                        <h4>Сборка электрощита</h4>
-                        <p class="portfolio-category">Частный дом</p>
-                    </div>
-                </article>
-
-                <!-- Project 3: Lighting Installation -->
-                <article class="portfolio-item" data-category="electrical">
-                    <div class="portfolio-image">
-                        <div class="portfolio-placeholder"
-                            style="background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 100%);">
-                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                <path d="M9 18h6a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2z" />
-                                <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.26C17.81 13.47 19 11.38 19 9a7 7 0 0 0-7-7z" />
-                            </svg>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <h3>💡 Освещение офиса</h3>
-                            <p>Установка светодиодного освещения в офисном помещении. Монтаж трековых светильников, подсветки.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">LED</span>
-                                <span class="tag">Светильники</span>
-                                <span class="tag">Офис</span>
-                            </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1584622050111-993a426fbf0a?w=800">
+                        <img src="https://images.unsplash.com/photo-1584622050111-993a426fbf0a?w=400" alt="Сантехника - Раковина">
+                        <div class="gallery-overlay">
+                            <span>📷 Раковина</span>
                         </div>
                     </div>
-                    <div class="portfolio-info">
-                        <h4>Освещение офиса</h4>
-                        <p class="portfolio-category">Коммерческий объект</p>
-                    </div>
-                </article>
-
-                <!-- Project 4: Plumbing Bathroom Renovation -->
-                <article class="portfolio-item" data-category="plumbing">
-                    <div class="portfolio-image">
-                        <div class="portfolio-placeholder"
-                            style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);">
-                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
-                                <path d="M6 8V6a6 6 0 0 1 12 0v2" />
-                                <line x1="6" y1="4" x2="6" y2="8" />
-                                <line x1="18" y1="4" x2="18" y2="8" />
-                            </svg>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <h3>🚿 Сантехника в ванной</h3>
-                            <p>Полная замена сантехники в ванной комнате. Установка ванны, раковины, смесителей, душевой системы.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Ванна</span>
-                                <span class="tag">Раковина</span>
-                                <span class="tag">Смесители</span>
-                            </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1595846519845-68e2eb5bcc09?w=800">
+                        <img src="https://images.unsplash.com/photo-1595846519845-68e2eb5bcc09?w=400" alt="Сантехника - Трубы">
+                        <div class="gallery-overlay">
+                            <span>📷 Трубы</span>
                         </div>
                     </div>
-                    <div class="portfolio-info">
-                        <h4>Сантехника в ванной</h4>
-                        <p class="portfolio-category">Жилой объект</p>
-                    </div>
-                </article>
-
-                <!-- Project 5: Kitchen Plumbing -->
-                <article class="portfolio-item" data-category="plumbing">
-                    <div class="portfolio-image">
-                        <div class="portfolio-placeholder"
-                            style="background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);">
-                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                <rect x="3" y="3" width="18" height="18" rx="2" />
-                                <circle cx="8.5" cy="8.5" r="1.5" />
-                                <path d="M21 15l-5-5L5 21" />
-                            </svg>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <h3>🍽️ Сантехника на кухне</h3>
-                            <p>Подключение кухонной мойки, посудомоечной машины, установка фильтра для воды, сифонов.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Мойка</span>
-                                <span class="tag">Посудомойка</span>
-                                <span class="tag">Фильтр</span>
-                            </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1604014237344-00aa9b0e0c15?w=800">
+                        <img src="https://images.unsplash.com/photo-1604014237344-00aa9b0e0c15?w=400" alt="Сантехника - Душ">
+                        <div class="gallery-overlay">
+                            <span>📷 Душевая</span>
                         </div>
                     </div>
-                    <div class="portfolio-info">
-                        <h4>Сантехника на кухне</h4>
-                        <p class="portfolio-category">Жилой объект</p>
-                    </div>
-                </article>
-
-                <!-- Project 6: Heating System -->
-                <article class="portfolio-item" data-category="plumbing">
-                    <div class="portfolio-image">
-                        <div class="portfolio-placeholder"
-                            style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">
-                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                <path d="M12 2v6m0 0a4 4 0 0 1 4 4v4a4 4 0 0 1-4 4 4 4 0 0 1-4-4v-4a4 4 0 0 1 4-4z" />
-                                <path d="M8 16v4m8-4v4" />
-                                <line x1="4" y1="22" x2="20" y2="22" />
-                            </svg>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <h3>🔥 Система отопления</h3>
-                            <p>Монтаж системы отопления в частном доме. Установка радиаторов, труб, циркуляционного насоса.</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Отопление</span>
-                                <span class="tag">Радиаторы</span>
-                                <span class="tag">Трубы</span>
-                            </div>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=800">
+                        <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=400" alt="Сантехника - Смеситель">
+                        <div class="gallery-overlay">
+                            <span>📷 Смеситель</span>
                         </div>
                     </div>
-                    <div class="portfolio-info">
-                        <h4>Система отопления</h4>
-                        <p class="portfolio-category">Частный дом</p>
+                    <div class="gallery-item" data-src="https://images.unsplash.com/photo-1581244277943-fe4a9877db56?w=800">
+                        <img src="https://images.unsplash.com/photo-1581244277943-fe4a9877db56?w=400" alt="Сантехника - Кухня">
+                        <div class="gallery-overlay">
+                            <span>📷 Кухня</span>
+                        </div>
                     </div>
-                </article>
+                </div>
 
             </div>
         </div>
     </section>
+
+    <!-- Lightbox Modal for Image Viewing -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" aria-label="Закрыть">&times;</button>
+        <button class="lightbox-prev" aria-label="Предыдущее фото">&#10094;</button>
+        <button class="lightbox-next" aria-label="Следующее фото">&#10095;</button>
+        <img class="lightbox-image" src="" alt="">
+        <div class="lightbox-caption"></div>
+    </div>
 
     <!-- Footer -->
     <footer class="site-footer">
