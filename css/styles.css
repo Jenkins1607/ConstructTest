@@ -531,12 +531,21 @@ body.theme-dark .theme-icon-moon {
 
 .project-categories li {
     padding: var(--spacing-xs) 0;
-    color: var(--text-muted);
     border-bottom: 1px solid var(--border);
 }
 
 .project-categories li:last-child {
     border-bottom: none;
+}
+
+.project-categories a {
+    color: var(--text-muted);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.project-categories a:hover {
+    color: var(--primary);
 }
 
 .footer-bottom {

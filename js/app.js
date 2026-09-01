@@ -97,27 +97,60 @@ function initMobileMenu() {
 function initPortfolioFilter() {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const portfolioItems = document.querySelectorAll('.portfolio-item');
+    const categoryLinks = document.querySelectorAll('.project-categories a[data-category]');
+    
     if (filterButtons.length === 0) return;
+    
+    // Функция фильтрации
+    function filterPortfolio(filterValue) {
+        // Обновляем активные кнопки фильтров
+        filterButtons.forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.filter === filterValue) {
+                btn.classList.add('active');
+            }
+        });
+        
+        // Фильтруем элементы портфолио
+        portfolioItems.forEach(item => {
+            if (filterValue === 'all' || item.dataset.category === filterValue) {
+                item.style.display = 'block';
+                setTimeout(() => {
+                    item.style.opacity = '1';
+                    item.style.transform = 'scale(1)';
+                }, 10);
+            } else {
+                item.style.opacity = '0';
+                item.style.transform = 'scale(0.8)';
+                setTimeout(() => {
+                    item.style.display = 'none';
+                }, 300);
+            }
+        });
+        
+        // Прокрутка к секции портфолио
+        const portfolioSection = document.getElementById('portfolio');
+        if (portfolioSection && filterValue !== 'all') {
+            portfolioSection.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    }
+    
+    // Обработчики для кнопок фильтров
     filterButtons.forEach(button => {
         button.addEventListener('click', function () {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            const filterValue = this.dataset.filter;
-            portfolioItems.forEach(item => {
-                if (filterValue === 'all' || item.dataset.category === filterValue) {
-                    item.style.display = 'block';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'scale(1)';
-                    }, 10);
-                } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'scale(0.8)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 300);
-                }
-            });
+            filterPortfolio(this.dataset.filter);
+        });
+    });
+    
+    // Обработчики для ссылок в футере
+    categoryLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const category = this.dataset.category;
+            filterPortfolio(category);
         });
     });
 }

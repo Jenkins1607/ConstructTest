@@ -66,261 +66,173 @@
         <div class="container">
             <!-- Portfolio filter buttons -->
             <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="all">All Projects</button>
-                <button class="filter-btn" data-filter="web">Websites</button>
-                <button class="filter-btn" data-filter="app">Applications</button>
-                <button class="filter-btn" data-filter="ecommerce">E-commerce</button>
-                <button class="filter-btn" data-filter="booking">Booking Systems</button>
+                <button class="filter-btn active" data-filter="all">Все проекты</button>
+                <button class="filter-btn" data-filter="electrical">Электромонтаж</button>
+                <button class="filter-btn" data-filter="plumbing">Сантехника</button>
             </div>
 
             <!-- Portfolio grid with real demo projects -->
             <div class="portfolio-grid">
 
-                <!-- Project 1: Makeup Artist Website -->
-                <article class="portfolio-item" data-category="web">
+                <!-- Project 1: Electrical Installation -->
+                <article class="portfolio-item" data-category="electrical">
                     <div class="portfolio-image">
                         <div class="portfolio-placeholder"
-                            style="background: linear-gradient(135deg, #ff6b9d 0%, #c06c84 100%);">
+                            style="background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);">
                             <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z" />
-                                <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+                                <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
                             </svg>
                         </div>
                         <div class="portfolio-overlay">
-                            <h3>💄 Makeup Artist Portfolio</h3>
-                            <p>Elegant portfolio website for professional makeup artist with gallery, booking system,
-                                and before/after showcase</p>
+                            <h3>⚡ Электромонтаж в квартире</h3>
+                            <p>Полная замена электропроводки в трехкомнатной квартире. Установка розеток, выключателей, щитка.</p>
                             <div class="portfolio-tags">
-                                <span class="tag">HTML/CSS</span>
-                                <span class="tag">JavaScript</span>
-                                <span class="tag">Responsive</span>
+                                <span class="tag">Проводка</span>
+                                <span class="tag">Щиток</span>
+                                <span class="tag">Розетки</span>
                             </div>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h4>Makeup Artist Portfolio</h4>
-                        <p class="portfolio-category">Website Design</p>
+                        <h4>Электромонтаж в квартире</h4>
+                        <p class="portfolio-category">Жилой объект</p>
                     </div>
                 </article>
 
-                <!-- Project 2: E-commerce Platform -->
-                <article class="portfolio-item" data-category="ecommerce">
+                <!-- Project 2: Electrical Panel Installation -->
+                <article class="portfolio-item" data-category="electrical">
                     <div class="portfolio-image">
                         <div class="portfolio-placeholder"
-                            style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);">
+                            style="background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);">
                             <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                <circle cx="9" cy="21" r="1" />
-                                <circle cx="20" cy="21" r="1" />
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
+                                <rect x="4" y="2" width="16" height="20" rx="2" />
+                                <line x1="4" y1="10" x2="20" y2="10" />
+                                <circle cx="8" cy="6" r="1" fill="white" />
+                                <circle cx="12" cy="6" r="1" fill="white" />
+                                <circle cx="16" cy="6" r="1" fill="white" />
                             </svg>
                         </div>
                         <div class="portfolio-overlay">
-                            <h3>🛍️ E-commerce Platform</h3>
-                            <p>Full-featured online store with product catalog, shopping cart, payment integration, and
-                                admin dashboard</p>
+                            <h3>🔌 Сборка электрощита</h3>
+                            <p>Монтаж и сборка распределительного щита для частного дома. Установка автоматов, УЗО, реле напряжения.</p>
                             <div class="portfolio-tags">
-                                <span class="tag">PHP</span>
-                                <span class="tag">MySQL</span>
-                                <span class="tag">Payment Gateway</span>
+                                <span class="tag">Щиток</span>
+                                <span class="tag">Автоматы</span>
+                                <span class="tag">УЗО</span>
                             </div>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h4>E-commerce Platform</h4>
-                        <p class="portfolio-category">Online Store</p>
+                        <h4>Сборка электрощита</h4>
+                        <p class="portfolio-category">Частный дом</p>
                     </div>
                 </article>
 
-                <!-- Project 3: Banking System App -->
-                <article class="portfolio-item" data-category="app">
+                <!-- Project 3: Lighting Installation -->
+                <article class="portfolio-item" data-category="electrical">
                     <div class="portfolio-image">
                         <div class="portfolio-placeholder"
-                            style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);">
+                            style="background: linear-gradient(135deg, #fcd34d 0%, #fbbf24 100%);">
                             <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                <rect x="1" y="4" width="22" height="16" rx="2" ry="2" />
-                                <line x1="1" y1="10" x2="23" y2="10" />
+                                <path d="M9 18h6a2 2 0 0 1 2 2v1a1 1 0 0 1-1 1H8a1 1 0 0 1-1-1v-1a2 2 0 0 1 2-2z" />
+                                <path d="M12 2a7 7 0 0 0-7 7c0 2.38 1.19 4.47 3 5.74V17a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-2.26C17.81 13.47 19 11.38 19 9a7 7 0 0 0-7-7z" />
                             </svg>
                         </div>
                         <div class="portfolio-overlay">
-                            <h3>🏦 Banking System</h3>
-                            <p>Secure banking application with account management, transactions, transfers, and
-                                real-time balance updates</p>
+                            <h3>💡 Освещение офиса</h3>
+                            <p>Установка светодиодного освещения в офисном помещении. Монтаж трековых светильников, подсветки.</p>
                             <div class="portfolio-tags">
-                                <span class="tag">Security</span>
-                                <span class="tag">Encryption</span>
-                                <span class="tag">Real-time</span>
+                                <span class="tag">LED</span>
+                                <span class="tag">Светильники</span>
+                                <span class="tag">Офис</span>
                             </div>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h4>Banking System App</h4>
-                        <p class="portfolio-category">Financial Application</p>
+                        <h4>Освещение офиса</h4>
+                        <p class="portfolio-category">Коммерческий объект</p>
                     </div>
                 </article>
 
-                <!-- Project 4: Chat Platform -->
-                <article class="portfolio-item" data-category="app">
+                <!-- Project 4: Plumbing Bathroom Renovation -->
+                <article class="portfolio-item" data-category="plumbing">
                     <div class="portfolio-image">
                         <div class="portfolio-placeholder"
-                            style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);">
+                            style="background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);">
                             <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                                <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" />
+                                <path d="M6 8V6a6 6 0 0 1 12 0v2" />
+                                <line x1="6" y1="4" x2="6" y2="8" />
+                                <line x1="18" y1="4" x2="18" y2="8" />
                             </svg>
                         </div>
                         <div class="portfolio-overlay">
-                            <h3>💬 Chat Platform</h3>
-                            <p>Real-time messaging platform with group chats, file sharing, emoji support, and online
-                                status indicators</p>
+                            <h3>🚿 Сантехника в ванной</h3>
+                            <p>Полная замена сантехники в ванной комнате. Установка ванны, раковины, смесителей, душевой системы.</p>
                             <div class="portfolio-tags">
-                                <span class="tag">WebSocket</span>
-                                <span class="tag">Real-time</span>
-                                <span class="tag">Notifications</span>
+                                <span class="tag">Ванна</span>
+                                <span class="tag">Раковина</span>
+                                <span class="tag">Смесители</span>
                             </div>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h4>Chat Platform</h4>
-                        <p class="portfolio-category">Communication App</p>
+                        <h4>Сантехника в ванной</h4>
+                        <p class="portfolio-category">Жилой объект</p>
                     </div>
                 </article>
 
-                <!-- Project 5: Hotel Booking System -->
-                <article class="portfolio-item" data-category="booking">
+                <!-- Project 5: Kitchen Plumbing -->
+                <article class="portfolio-item" data-category="plumbing">
                     <div class="portfolio-image">
                         <div class="portfolio-placeholder"
-                            style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);">
+                            style="background: linear-gradient(135deg, #60a5fa 0%, #3b82f6 100%);">
                             <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
-                                <polyline points="9 22 9 12 15 12 15 22" />
+                                <rect x="3" y="3" width="18" height="18" rx="2" />
+                                <circle cx="8.5" cy="8.5" r="1.5" />
+                                <path d="M21 15l-5-5L5 21" />
                             </svg>
                         </div>
                         <div class="portfolio-overlay">
-                            <h3>🏨 Hotel Booking System</h3>
-                            <p>Complete hotel reservation system with room availability, online booking, payment
-                                processing, and guest management</p>
+                            <h3>🍽️ Сантехника на кухне</h3>
+                            <p>Подключение кухонной мойки, посудомоечной машины, установка фильтра для воды, сифонов.</p>
                             <div class="portfolio-tags">
-                                <span class="tag">Booking Engine</span>
-                                <span class="tag">Calendar</span>
-                                <span class="tag">Payments</span>
+                                <span class="tag">Мойка</span>
+                                <span class="tag">Посудомойка</span>
+                                <span class="tag">Фильтр</span>
                             </div>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h4>Hotel Booking System</h4>
-                        <p class="portfolio-category">Hospitality Platform</p>
+                        <h4>Сантехника на кухне</h4>
+                        <p class="portfolio-category">Жилой объект</p>
                     </div>
                 </article>
 
-                <!-- Project 6: Bus & Taxi System -->
-                <article class="portfolio-item" data-category="booking">
+                <!-- Project 6: Heating System -->
+                <article class="portfolio-item" data-category="plumbing">
                     <div class="portfolio-image">
                         <div class="portfolio-placeholder"
-                            style="background: linear-gradient(135deg, #30cfd0 0%, #330867 100%);">
+                            style="background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);">
                             <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                <rect x="1" y="3" width="15" height="13" />
-                                <polygon points="16 8 20 8 23 11 23 16 16 16 16 8" />
-                                <circle cx="5.5" cy="18.5" r="2.5" />
-                                <circle cx="18.5" cy="18.5" r="2.5" />
+                                <path d="M12 2v6m0 0a4 4 0 0 1 4 4v4a4 4 0 0 1-4 4 4 4 0 0 1-4-4v-4a4 4 0 0 1 4-4z" />
+                                <path d="M8 16v4m8-4v4" />
+                                <line x1="4" y1="22" x2="20" y2="22" />
                             </svg>
                         </div>
                         <div class="portfolio-overlay">
-                            <h3>🚌 Bus & Taxi Booking</h3>
-                            <p>Transportation booking platform with route planning, real-time tracking, fare
-                                calculation, and driver management</p>
+                            <h3>🔥 Система отопления</h3>
+                            <p>Монтаж системы отопления в частном доме. Установка радиаторов, труб, циркуляционного насоса.</p>
                             <div class="portfolio-tags">
-                                <span class="tag">GPS Tracking</span>
-                                <span class="tag">Route Planning</span>
-                                <span class="tag">Mobile App</span>
+                                <span class="tag">Отопление</span>
+                                <span class="tag">Радиаторы</span>
+                                <span class="tag">Трубы</span>
                             </div>
                         </div>
                     </div>
                     <div class="portfolio-info">
-                        <h4>Bus & Taxi System</h4>
-                        <p class="portfolio-category">Transportation Platform</p>
-                    </div>
-                </article>
-
-                <!-- Project 7: Corporate Website -->
-                <article class="portfolio-item" data-category="web">
-                    <div class="portfolio-image">
-                        <div class="portfolio-placeholder"
-                            style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);">
-                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2">
-                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-                                <line x1="8" y1="21" x2="16" y2="21" />
-                                <line x1="12" y1="17" x2="12" y2="21" />
-                            </svg>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <h3>🏢 Corporate Website</h3>
-                            <p>Professional corporate website with company profile, services showcase, team section</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Corporate</span>
-                                <span class="tag">SEO</span>
-                                <span class="tag">CMS</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h4>Corporate Website</h4>
-                        <p class="portfolio-category">Business Website</p>
-                    </div>
-                </article>
-
-                <!-- Project 8: Restaurant Menu App -->
-                <article class="portfolio-item" data-category="app">
-                    <div class="portfolio-image">
-                        <div class="portfolio-placeholder"
-                            style="background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%);">
-                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                <path d="M18 8h1a4 4 0 0 1 0 8h-1" />
-                                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" />
-                                <line x1="6" y1="1" x2="6" y2="4" />
-                                <line x1="10" y1="1" x2="10" y2="4" />
-                                <line x1="14" y1="1" x2="14" y2="4" />
-                            </svg>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <h3>🍽️ Restaurant Menu App</h3>
-                            <p>Digital menu system with food ordering, table reservation, and kitchen management
-                                dashboard</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">QR Code</span>
-                                <span class="tag">Ordering</span>
-                                <span class="tag">POS</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h4>Restaurant Menu App</h4>
-                        <p class="portfolio-category">Food Service</p>
-                    </div>
-                </article>
-
-                <!-- Project 9: Fitness Tracker -->
-                <article class="portfolio-item" data-category="app">
-                    <div class="portfolio-image">
-                        <div class="portfolio-placeholder"
-                            style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
-                            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
-                                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12" />
-                            </svg>
-                        </div>
-                        <div class="portfolio-overlay">
-                            <h3>💪 Fitness Tracker</h3>
-                            <p>Health and fitness tracking app with workout plans, progress monitoring, and nutrition
-                                tracking</p>
-                            <div class="portfolio-tags">
-                                <span class="tag">Health</span>
-                                <span class="tag">Analytics</span>
-                                <span class="tag">Charts</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="portfolio-info">
-                        <h4>Fitness Tracker</h4>
-                        <p class="portfolio-category">Health & Wellness</p>
+                        <h4>Система отопления</h4>
+                        <p class="portfolio-category">Частный дом</p>
                     </div>
                 </article>
 
@@ -336,10 +248,8 @@
                     <h3>All Projects</h3>
                     <p>Categories of construction works</p>
                     <ul class="project-categories">
-                        <li>Websites</li>
-                        <li>Applications</li>
-                        <li>E-commerce</li>
-                        <li>Booking Systems</li>
+                        <li><a href="#" data-category="electrical">Электромонтаж</a></li>
+                        <li><a href="#" data-category="plumbing">Сантехника</a></li>
                     </ul>
                 </div>
             </div>
