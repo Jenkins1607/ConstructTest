@@ -1,188 +1,212 @@
-<!-- UPDATED: Portfolio with Electrical and Plumbing galleries using Fotorama -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="View our portfolio and past projects at [Site purpose]">
+    <meta name="description" content="Галерея выполненных работ — TOH строительство ремонтов">
     <meta name="color-scheme" content="light dark">
-    <title>TOH</title>
+    <title>TOH — Галерея работ</title>
+
     <link rel="stylesheet" href="css/styles.css">
-    
-    <!-- jQuery 3.6.0 (Required for Fancybox) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    
-    <!-- Fancybox CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
 </head>
 
 <body class="theme-auto">
-    <!-- Header with navigation -->
+
+    <!-- ===== HEADER ===== -->
     <header class="site-header">
         <div class="container">
             <div class="header-content">
-                <div class="logo">
-                    <h1>TOH</h1>
-                </div>
+                <a href="/portfolio.html" class="logo-link" aria-label="TOH — на главную">
+                    <img src="imagesTOH/etalon.svg" alt="TOH Строительство ремонтов" class="logo-image">
+                </a>
 
-                <!-- Mobile menu toggle button -->
-                <button class="mobile-menu-toggle" aria-label="Toggle navigation menu">
-                    <span class="hamburger"></span>
-                    <span class="hamburger"></span>
-                    <span class="hamburger"></span>
-                </button>
-
-                <!-- Main navigation -->
-                <nav class="main-nav">
-                    <ul class="nav-list">
-                        <li><a href="portfolio.html" class="active">Portfolio</a></li>
-                    </ul>
-                </nav>
-
-                <!-- UPDATED: Dark mode toggle button -->
-                <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" aria-pressed="false">
-                    <svg class="theme-icon theme-icon-sun" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="2" />
-                        <path
-                            d="M10 2V4M10 16V18M18 10H16M4 10H2M15.657 4.343L14.243 5.757M5.757 14.243L4.343 15.657M15.657 15.657L14.243 14.243M5.757 5.757L4.343 4.343"
-                            stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <button class="theme-toggle" id="themeToggle"
+                        aria-label="Переключить тему" aria-pressed="false">
+                    <svg class="theme-icon theme-icon-sun" width="20" height="20"
+                         viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="2"/>
+                        <path d="M10 2V4M10 16V18M18 10H16M4 10H2
+                                 M15.657 4.343L14.243 5.757
+                                 M5.757 14.243L4.343 15.657
+                                 M15.657 15.657L14.243 14.243
+                                 M5.757 5.757L4.343 4.343"
+                              stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     </svg>
-                    <svg class="theme-icon theme-icon-moon" width="20" height="20" viewBox="0 0 20 20" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                    <svg class="theme-icon theme-icon-moon" width="20" height="20"
+                         viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
-                            stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+                              stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
                     </svg>
                 </button>
             </div>
         </div>
     </header>
 
-    <!-- Page header -->
+    <!-- ===== PAGE HEADER ===== -->
     <section class="page-header">
         <div class="container">
             <h2>Галерея работ</h2>
         </div>
     </section>
 
-    <!-- Portfolio gallery section -->
+    <!-- ===== GALLERY ===== -->
     <section class="portfolio-section">
         <div class="container">
-            <!-- Portfolio filter buttons -->
-            <div class="portfolio-filters">
-                <button class="filter-btn active" data-filter="electrical">Электромонтаж</button>
-                <button class="filter-btn" data-filter="plumbing">Сантехника</button>
+
+            <!-- Фильтры -->
+            <div class="portfolio-filters" role="tablist" aria-label="Категории работ">
+                <button class="filter-btn active" data-filter="electrical"
+                        role="tab" aria-selected="true">Электромонтаж</button>
+                <button class="filter-btn" data-filter="plumbing"
+                        role="tab" aria-selected="false">Сантехника</button>
             </div>
 
-            <!-- Electrical Installation Gallery -->
-            <div id="electrical-gallery" class="fancybox-gallery-group active">
+            <!-- Электромонтаж -->
+            <div id="electrical-gallery" class="fancybox-gallery-group active"
+                 role="tabpanel" aria-label="Электромонтаж">
                 <h3>Электромонтаж</h3>
                 <div class="gallery-grid">
-                    <a data-fancybox="electrical" href="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1200">
-                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400" alt="Электромонтаж: Щиток">
+                    <a data-fancybox="electrical"
+                       href="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1200">
+                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400"
+                             srcset="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=300 300w,
+                                     https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=520 520w"
+                             sizes="(max-width: 720px) 45vw, 260px"
+                             alt="Электрощиток" loading="lazy" decoding="async">
                     </a>
-                    <a data-fancybox="electrical" href="https://images.unsplash.com/photo-1558402529-d2638a7023e9?w=1200">
-                        <img src="https://images.unsplash.com/photo-1558402529-d2638a7023e9?w=400" alt="Электромонтаж: Проводка">
+                    <a data-fancybox="electrical"
+                       href="https://images.unsplash.com/photo-1558402529-d2638a7023e9?w=1200">
+                        <img src="https://images.unsplash.com/photo-1558402529-d2638a7023e9?w=400"
+                             srcset="https://images.unsplash.com/photo-1558402529-d2638a7023e9?w=300 300w,
+                                     https://images.unsplash.com/photo-1558402529-d2638a7023e9?w=520 520w"
+                             sizes="(max-width: 720px) 45vw, 260px"
+                             alt="Электропроводка" loading="lazy" decoding="async">
                     </a>
-                    <a data-fancybox="electrical" href="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400" alt="Электромонтаж: Офис">
+                    <a data-fancybox="electrical"
+                       href="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400"
+                             srcset="https://images.unsplash.com/photo-1497366216548-37526070297c?w=300 300w,
+                                     https://images.unsplash.com/photo-1497366216548-37526070297c?w=520 520w"
+                             sizes="(max-width: 720px) 45vw, 260px"
+                             alt="Электромонтаж в офисе" loading="lazy" decoding="async">
                     </a>
-                    <a data-fancybox="electrical" href="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=1200">
-                        <img src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=400" alt="Электромонтаж: Плата">
+                    <a data-fancybox="electrical"
+                       href="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=1200">
+                        <img src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=400"
+                             srcset="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=300 300w,
+                                     https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=520 520w"
+                             sizes="(max-width: 720px) 45vw, 260px"
+                             alt="Электроплата" loading="lazy" decoding="async">
                     </a>
                 </div>
             </div>
 
-            <!-- Plumbing Gallery -->
-            <div id="plumbing-gallery" class="fancybox-gallery-group">
+            <!-- Сантехника -->
+            <div id="plumbing-gallery" class="fancybox-gallery-group"
+                 role="tabpanel" aria-label="Сантехника">
                 <h3>Сантехника</h3>
                 <div class="gallery-grid">
-                    <a data-fancybox="plumbing" href="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1200">
-                        <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=400" alt="Сантехника: Кухонная мойка">
+                    <a data-fancybox="plumbing"
+                       href="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1200">
+                        <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=400"
+                             srcset="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=300 300w,
+                                     https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=520 520w"
+                             sizes="(max-width: 720px) 45vw, 260px"
+                             alt="Кухонная мойка" loading="lazy" decoding="async">
                     </a>
-                    <a data-fancybox="plumbing" href="https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=1200">
-                        <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=400" alt="Сантехника: Современные fixtures">
+                    <a data-fancybox="plumbing"
+                       href="https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=1200">
+                        <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=400"
+                             srcset="https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=300 300w,
+                                     https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=520 520w"
+                             sizes="(max-width: 720px) 45vw, 260px"
+                             alt="Современная сантехника" loading="lazy" decoding="async">
                     </a>
-                    <a data-fancybox="plumbing" href="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=1200">
-                        <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400" alt="Сантехника: Трубы">
+                    <a data-fancybox="plumbing"
+                       href="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=1200">
+                        <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400"
+                             srcset="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=300 300w,
+                                     https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=520 520w"
+                             sizes="(max-width: 720px) 45vw, 260px"
+                             alt="Монтаж труб" loading="lazy" decoding="async">
                     </a>
-                    <a data-fancybox="plumbing" href="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=1200">
-                        <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=400" alt="Сантехника: Ремонт ванной">
+                    <a data-fancybox="plumbing"
+                       href="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=1200">
+                        <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=400"
+                             srcset="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=300 300w,
+                                     https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=520 520w"
+                             sizes="(max-width: 720px) 45vw, 260px"
+                             alt="Ремонт ванной" loading="lazy" decoding="async">
                     </a>
-                    <a data-fancybox="plumbing" href="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1200">
-                        <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=400" alt="Сантехника: Водонагреватель">
+                    <a data-fancybox="plumbing"
+                       href="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1200">
+                        <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=400"
+                             srcset="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=300 300w,
+                                     https://images.unsplash.com/photo-1620626011761-996317b8d101?w=520 520w"
+                             sizes="(max-width: 720px) 45vw, 260px"
+                             alt="Водонагреватель" loading="lazy" decoding="async">
                     </a>
                 </div>
             </div>
+
         </div>
     </section>
 
-    <!-- Footer -->
+    <!-- ===== FOOTER ===== -->
     <footer class="site-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>About Us</h3>
-                    <p>We are dedicated to providing exceptional service and quality work.</p>
+                    <h3>О нас</h3>
+                    <p>Профессиональное строительство и ремонт. Работаем на результат.</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="portfolio.html">Portfolio</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contact Info</h3>
+                    <h3>Контакты</h3>
                     <p>Email: info@example.com</p>
-                    <p>Phone: (123) 456-7890</p>
+                    <p>Телефон: +7 918 946 6993</p>
+                    <p>Telegram: @example</p>
+                    <p>WhatsApp: +7 918 946 6993</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 [Site purpose]. All rights reserved.</p>
+                <p>&copy; 2025 TOH. Все права защищены.</p>
             </div>
         </div>
     </footer>
 
-    <!-- UPDATED: Sticky mobile theme toggle -->
-    <button class="theme-toggle-mobile" id="themeToggleMobile" aria-label="Toggle dark mode" aria-pressed="false">
-        <svg class="theme-icon theme-icon-sun" width="24" height="24" viewBox="0 0 20 20" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="2" />
-            <path
-                d="M10 2V4M10 16V18M18 10H16M4 10H2M15.657 4.343L14.243 5.757M5.757 14.243L4.343 15.657M15.657 15.657L14.243 14.243M5.757 5.757L4.343 4.343"
-                stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+    <!-- Плавающая кнопка темы (мобайл) -->
+    <button class="theme-toggle-mobile" id="themeToggleMobile"
+            aria-label="Переключить тему" aria-pressed="false">
+        <svg class="theme-icon theme-icon-sun" width="22" height="22"
+             viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="2"/>
+            <path d="M10 2V4M10 16V18M18 10H16M4 10H2
+                     M15.657 4.343L14.243 5.757
+                     M5.757 14.243L4.343 15.657
+                     M15.657 15.657L14.243 14.243
+                     M5.757 5.757L4.343 4.343"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
-        <svg class="theme-icon theme-icon-moon" width="24" height="24" viewBox="0 0 20 20" fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" stroke="currentColor"
-                stroke-width="2" stroke-linejoin="round" />
+        <svg class="theme-icon theme-icon-moon" width="22" height="22"
+             viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+                  stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
         </svg>
     </button>
 
-    <!-- JavaScript -->
+    <!-- Scripts -->
     <script src="js/app.js"></script>
-        <!-- Fancybox JS -->
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
-    
-    <!-- Main JavaScript -->
-    <script src="js/app.js"></script>
-
-    <!-- Fancybox Initialization -->
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('[data-fancybox]').fancybox({
-                buttons: [
-                    "zoom",
-                    "share",
-                    "slideShow",
-                    "fullScreen",
-                    "download",
-                    "thumbs",
-                    "close"
-                ],
+                buttons: ['zoom', 'slideShow', 'fullScreen', 'thumbs', 'close'],
                 loop: true,
-                protect: true // Защита от копирования (отключает правый клик на изображении)
+                protect: true
             });
         });
     </script>
