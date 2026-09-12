@@ -152,6 +152,38 @@ a:focus-visible, button:focus-visible {
 
 img { max-width: 100%; height: auto; display: block; }
 ul  { list-style: none; }
+svg { display: block; }
+
+/* ============================================
+   ACCESSIBILITY UTILITIES
+   ============================================ */
+
+.visually-hidden {
+    position: absolute !important;
+    width: 1px; height: 1px;
+    padding: 0; margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.skip-link {
+    position: absolute;
+    top: -4rem;
+    left: 1rem;
+    z-index: 2000;
+    background: var(--primary);
+    color: #FFF8E8;
+    padding: .65rem 1.15rem;
+    border-radius: var(--radius-sm);
+    font-weight: 600;
+    transition: top var(--transition-fast);
+}
+.skip-link:focus {
+    top: 1rem;
+    color: #FFF8E8;
+}
 
 /* ============================================
    LAYOUT
@@ -203,6 +235,7 @@ ul  { list-style: none; }
    ============================================ */
 
 .theme-toggle {
+    position: relative;
     flex-shrink: 0;
     background: var(--surface);
     border: 2px solid var(--border);
@@ -222,14 +255,23 @@ ul  { list-style: none; }
     transform: scale(1.06);
 }
 
-.theme-icon            { color: var(--text); transition: all var(--transition-normal); }
-.theme-icon-sun        { display: block; }
-.theme-icon-moon       { display: none; }
-body.theme-dark .theme-icon-sun  { display: none; }
-body.theme-dark .theme-icon-moon { display: block; }
+/* Icons are stacked on top of each other and cross-fade + rotate instead
+   of an abrupt display:none swap */
+.theme-icon {
+    position: absolute;
+    inset: 0;
+    margin: auto;
+    color: var(--text);
+    transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+.theme-icon-sun  { opacity: 1; transform: rotate(0deg)   scale(1); }
+.theme-icon-moon { opacity: 0; transform: rotate(-90deg) scale(.6); }
+
+body.theme-dark .theme-icon-sun  { opacity: 0; transform: rotate(90deg) scale(.6); }
+body.theme-dark .theme-icon-moon { opacity: 1; transform: rotate(0deg)  scale(1); }
 @media (prefers-color-scheme: dark) {
-    body.theme-auto .theme-icon-sun  { display: none; }
-    body.theme-auto .theme-icon-moon { display: block; }
+    body.theme-auto .theme-icon-sun  { opacity: 0; transform: rotate(90deg) scale(.6); }
+    body.theme-auto .theme-icon-moon { opacity: 1; transform: rotate(0deg)  scale(1); }
 }
 
 /* Floating mobile toggle */
@@ -242,7 +284,7 @@ body.theme-dark .theme-icon-moon { display: block; }
     border-radius: 50%;
     width: 52px;
     height: 52px;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
@@ -261,6 +303,9 @@ body.theme-dark .theme-icon-moon { display: block; }
     .theme-toggle        { display: none; }
     .theme-toggle-mobile { display: flex; }
 }
+@media (min-width: 769px) {
+    .theme-toggle-mobile { display: none; }
+}
 
 /* Respect the iPhone home-indicator / notch safe area */
 @supports (bottom: env(safe-area-inset-bottom)) {
@@ -275,9 +320,23 @@ body.theme-dark .theme-icon-moon { display: block; }
    ============================================ */
 
 .page-header {
+    position: relative;
+    overflow: hidden;
     background: linear-gradient(135deg, #7A5010 0%, #B87818 60%, #D4920E 100%);
     padding: var(--spacing-lg) 0;
     text-align: center;
+}
+
+/* Faint blueprint grid — a nod to construction plans, built only from
+   translucent white so it never introduces a new hue */
+.page-header-pattern {
+    position: absolute;
+    inset: 0;
+    background-image:
+        repeating-linear-gradient(0deg,  rgba(255,255,255,.07) 0 1px, transparent 1px 42px),
+        repeating-linear-gradient(90deg, rgba(255,255,255,.07) 0 1px, transparent 1px 42px);
+    opacity: .6;
+    pointer-events: none;
 }
 
 body.theme-dark .page-header {
@@ -287,6 +346,11 @@ body.theme-dark .page-header {
     body.theme-auto .page-header {
         background: linear-gradient(135deg, #0D1812 0%, #1A4532 55%, #245E45 100%);
     }
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 1;
 }
 
 .page-header h2 {
@@ -311,6 +375,9 @@ body.theme-dark .page-header {
 }
 
 .filter-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .55rem;
     padding: .65rem 1.75rem;
     background: var(--surface);
     border: 2px solid var(--border);
@@ -322,6 +389,13 @@ body.theme-dark .page-header {
     font-size: .9375rem;
     font-family: var(--font-primary);
     letter-spacing: .01em;
+}
+
+.filter-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: currentColor;
 }
 
 .filter-btn:hover {
@@ -381,35 +455,51 @@ body.theme-dark .filter-btn.active {
     gap: var(--spacing-md);
 }
 
-.gallery-grid a {
-    display: block;
+.gallery-item {
+    display: flex;
+    flex-direction: column;
     border-radius: var(--radius-md);
     overflow: hidden;
     box-shadow: var(--shadow-md);
     border: 1.5px solid var(--border);
+    background: var(--surface);
     transition: transform var(--transition-normal),
                 box-shadow   var(--transition-normal),
                 border-color var(--transition-normal);
 }
-.gallery-grid a:hover {
+.gallery-item:hover,
+.gallery-item:focus-within {
     transform: translateY(-6px);
     box-shadow: var(--shadow-lg), var(--shadow-glow);
     border-color: var(--copper);
 }
 
-.gallery-grid img {
+.gallery-item a { display: block; }
+
+.gallery-item img {
     width: 100%;
     aspect-ratio: 4 / 3;
     height: auto;
     object-fit: cover;
+    background: var(--surface);
     transition: transform var(--transition-slow);
 }
-.gallery-grid a:hover img { transform: scale(1.06); }
+.gallery-item:hover img,
+.gallery-item:focus-within img { transform: scale(1.06); }
+
+.gallery-item figcaption {
+    padding: .55rem .85rem;
+    border-top: 1px solid var(--border);
+    font-size: .85rem;
+    color: var(--text-muted);
+    text-align: center;
+}
 
 @media (hover: none) {
     /* No hover on touch devices — skip the lift/zoom so taps feel instant */
-    .gallery-grid a:hover        { transform: none; box-shadow: var(--shadow-md); border-color: var(--border); }
-    .gallery-grid a:hover img    { transform: none; }
+    .gallery-item:hover,
+    .gallery-item:focus-within  { transform: none; box-shadow: var(--shadow-md); border-color: var(--border); }
+    .gallery-item:hover img     { transform: none; }
 }
 
 /* Tablet: two comfortably-sized columns instead of one column that
@@ -420,7 +510,8 @@ body.theme-dark .filter-btn.active {
         justify-content: stretch;
         gap: var(--spacing-sm);
     }
-    .gallery-grid img { aspect-ratio: 1 / 1; }
+    .gallery-item img { aspect-ratio: 1 / 1; }
+    .gallery-item figcaption { font-size: .8rem; padding: .5rem .6rem; }
 }
 
 /* Small phones: tighten the gap further so two columns still feel airy
@@ -468,10 +559,40 @@ body.theme-dark .site-footer {
     word-break: break-word;
 }
 
-/* Dark: footer contact links pick up emerald-tinted muted */
-body.theme-dark .footer-section p { color: #8DAE9A; }
+.contact-list {
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+}
+
+.contact-link {
+    display: inline-flex;
+    align-items: center;
+    gap: .6rem;
+    color: var(--text-muted);
+    font-size: .9375rem;
+    width: fit-content;
+}
+.contact-link:hover,
+.contact-link:focus-visible { color: var(--primary); }
+
+.contact-icon {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    color: currentColor;
+}
+
+/* Dark: footer contact text/links pick up emerald-tinted muted */
+body.theme-dark .footer-section p,
+body.theme-dark .contact-link { color: #8DAE9A; }
+body.theme-dark .contact-link:hover,
+body.theme-dark .contact-link:focus-visible { color: var(--accent); }
 @media (prefers-color-scheme: dark) {
-    body.theme-auto .footer-section p { color: #8DAE9A; }
+    body.theme-auto .footer-section p,
+    body.theme-auto .contact-link { color: #8DAE9A; }
+    body.theme-auto .contact-link:hover,
+    body.theme-auto .contact-link:focus-visible { color: var(--accent); }
 }
 
 .footer-bottom {

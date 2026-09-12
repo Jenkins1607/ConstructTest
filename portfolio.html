@@ -6,15 +6,37 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Галерея выполненных работ — TOH строительство ремонтов">
     <meta name="color-scheme" content="light dark">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#FAF7F1">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#0D1812">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:title" content="TOH — Галерея работ">
+    <meta property="og:description" content="Галерея выполненных работ — TOH строительство ремонтов">
     <title>TOH — Галерея работ</title>
+
+    <link rel="icon" type="image/svg+xml" href="imagesTOH/favicon.svg">
+
+    <link rel="preconnect" href="https://images.unsplash.com">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+    <link rel="preconnect" href="https://code.jquery.com" crossorigin>
 
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css"/>
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
 <body class="theme-auto">
+    <!-- Applied first, synchronously, so a stored theme preference paints
+         immediately instead of flashing the system default for a frame. -->
+    <script>
+        (function () {
+            try {
+                var stored = localStorage.getItem('user-theme-preference');
+                if (stored) document.body.className = stored;
+            } catch (e) { /* localStorage unavailable — fall back to theme-auto */ }
+        })();
+    </script>
+
+    <a href="#main-content" class="skip-link">Перейти к содержимому</a>
 
     <!-- ===== HEADER ===== -->
     <header class="site-header">
@@ -27,7 +49,7 @@
                 <button class="theme-toggle" id="themeToggle"
                         aria-label="Переключить тему" aria-pressed="false">
                     <svg class="theme-icon theme-icon-sun" width="20" height="20"
-                         viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                         viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="2"/>
                         <path d="M10 2V4M10 16V18M18 10H16M4 10H2
                                  M15.657 4.343L14.243 5.757
@@ -37,7 +59,7 @@
                               stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                     <svg class="theme-icon theme-icon-moon" width="20" height="20"
-                         viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                         viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
                         <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
                               stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
                     </svg>
@@ -46,115 +68,159 @@
         </div>
     </header>
 
-    <!-- ===== PAGE HEADER ===== -->
-    <section class="page-header">
-        <div class="container">
-            <h2>Галерея работ</h2>
-        </div>
-    </section>
-
-    <!-- ===== GALLERY ===== -->
-    <section class="portfolio-section">
-        <div class="container">
-
-            <!-- Фильтры -->
-            <div class="portfolio-filters" role="tablist" aria-label="Категории работ">
-                <button class="filter-btn active" data-filter="electrical"
-                        role="tab" aria-selected="true">Электромонтаж</button>
-                <button class="filter-btn" data-filter="plumbing"
-                        role="tab" aria-selected="false">Сантехника</button>
+    <main id="main-content">
+        <!-- ===== PAGE HEADER ===== -->
+        <section class="page-header">
+            <div class="page-header-pattern" aria-hidden="true"></div>
+            <div class="container">
+                <h2>Галерея работ</h2>
             </div>
+        </section>
 
-            <!-- Электромонтаж -->
-            <div id="electrical-gallery" class="fancybox-gallery-group active"
-                 role="tabpanel" aria-label="Электромонтаж">
-                <h3>Электромонтаж</h3>
-                <div class="gallery-grid">
-                    <a data-fancybox="electrical"
-                       href="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1200">
-                        <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400"
-                             srcset="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=300 300w,
-                                     https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=520 520w"
-                             sizes="(max-width: 720px) 45vw, 260px"
-                             alt="Электрощиток" loading="lazy" decoding="async">
-                    </a>
-                    <a data-fancybox="electrical"
-                       href="https://images.unsplash.com/photo-1558402529-d2638a7023e9?w=1200">
-                        <img src="https://images.unsplash.com/photo-1558402529-d2638a7023e9?w=400"
-                             srcset="https://images.unsplash.com/photo-1558402529-d2638a7023e9?w=300 300w,
-                                     https://images.unsplash.com/photo-1558402529-d2638a7023e9?w=520 520w"
-                             sizes="(max-width: 720px) 45vw, 260px"
-                             alt="Электропроводка" loading="lazy" decoding="async">
-                    </a>
-                    <a data-fancybox="electrical"
-                       href="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200">
-                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400"
-                             srcset="https://images.unsplash.com/photo-1497366216548-37526070297c?w=300 300w,
-                                     https://images.unsplash.com/photo-1497366216548-37526070297c?w=520 520w"
-                             sizes="(max-width: 720px) 45vw, 260px"
-                             alt="Электромонтаж в офисе" loading="lazy" decoding="async">
-                    </a>
-                    <a data-fancybox="electrical"
-                       href="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=1200">
-                        <img src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=400"
-                             srcset="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=300 300w,
-                                     https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=520 520w"
-                             sizes="(max-width: 720px) 45vw, 260px"
-                             alt="Электроплата" loading="lazy" decoding="async">
-                    </a>
+        <!-- ===== GALLERY ===== -->
+        <section class="portfolio-section">
+            <div class="container">
+
+                <!-- Фильтры -->
+                <div class="portfolio-filters" role="tablist" aria-label="Категории работ">
+                    <button class="filter-btn active" id="tab-electrical" data-filter="electrical"
+                            role="tab" aria-selected="true" aria-controls="electrical-gallery" tabindex="0">
+                        <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+                        </svg>
+                        Электромонтаж
+                    </button>
+                    <button class="filter-btn" id="tab-plumbing" data-filter="plumbing"
+                            role="tab" aria-selected="false" aria-controls="plumbing-gallery" tabindex="-1">
+                        <svg class="filter-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                             stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+                        </svg>
+                        Сантехника
+                    </button>
                 </div>
-            </div>
 
-            <!-- Сантехника -->
-            <div id="plumbing-gallery" class="fancybox-gallery-group"
-                 role="tabpanel" aria-label="Сантехника">
-                <h3>Сантехника</h3>
-                <div class="gallery-grid">
-                    <a data-fancybox="plumbing"
-                       href="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1200">
-                        <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=400"
-                             srcset="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=300 300w,
-                                     https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=520 520w"
-                             sizes="(max-width: 720px) 45vw, 260px"
-                             alt="Кухонная мойка" loading="lazy" decoding="async">
-                    </a>
-                    <a data-fancybox="plumbing"
-                       href="https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=1200">
-                        <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=400"
-                             srcset="https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=300 300w,
-                                     https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=520 520w"
-                             sizes="(max-width: 720px) 45vw, 260px"
-                             alt="Современная сантехника" loading="lazy" decoding="async">
-                    </a>
-                    <a data-fancybox="plumbing"
-                       href="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=1200">
-                        <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400"
-                             srcset="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=300 300w,
-                                     https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=520 520w"
-                             sizes="(max-width: 720px) 45vw, 260px"
-                             alt="Монтаж труб" loading="lazy" decoding="async">
-                    </a>
-                    <a data-fancybox="plumbing"
-                       href="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=1200">
-                        <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=400"
-                             srcset="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=300 300w,
-                                     https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=520 520w"
-                             sizes="(max-width: 720px) 45vw, 260px"
-                             alt="Ремонт ванной" loading="lazy" decoding="async">
-                    </a>
-                    <a data-fancybox="plumbing"
-                       href="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1200">
-                        <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=400"
-                             srcset="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=300 300w,
-                                     https://images.unsplash.com/photo-1620626011761-996317b8d101?w=520 520w"
-                             sizes="(max-width: 720px) 45vw, 260px"
-                             alt="Водонагреватель" loading="lazy" decoding="async">
-                    </a>
+                <p id="filterAnnouncer" class="visually-hidden" role="status" aria-live="polite"></p>
+
+                <!-- Электромонтаж -->
+                <div id="electrical-gallery" class="fancybox-gallery-group active"
+                     role="tabpanel" aria-labelledby="tab-electrical">
+                    <h3>Электромонтаж</h3>
+                    <div class="gallery-grid">
+                        <figure class="gallery-item">
+                            <a data-fancybox="electrical"
+                               href="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=1200">
+                                <img src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400"
+                                     srcset="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=300 300w,
+                                             https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=520 520w"
+                                     sizes="(max-width: 720px) 45vw, 260px"
+                                     alt="Электрощиток" loading="lazy" decoding="async">
+                            </a>
+                            <figcaption>Электрощиток</figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <a data-fancybox="electrical"
+                               href="https://images.unsplash.com/photo-1558402529-d2638a7023e9?w=1200">
+                                <img src="https://images.unsplash.com/photo-1558402529-d2638a7023e9?w=400"
+                                     srcset="https://images.unsplash.com/photo-1558402529-d2638a7023e9?w=300 300w,
+                                             https://images.unsplash.com/photo-1558402529-d2638a7023e9?w=520 520w"
+                                     sizes="(max-width: 720px) 45vw, 260px"
+                                     alt="Электропроводка" loading="lazy" decoding="async">
+                            </a>
+                            <figcaption>Электропроводка</figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <a data-fancybox="electrical"
+                               href="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200">
+                                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=400"
+                                     srcset="https://images.unsplash.com/photo-1497366216548-37526070297c?w=300 300w,
+                                             https://images.unsplash.com/photo-1497366216548-37526070297c?w=520 520w"
+                                     sizes="(max-width: 720px) 45vw, 260px"
+                                     alt="Электромонтаж в офисе" loading="lazy" decoding="async">
+                            </a>
+                            <figcaption>Электромонтаж в офисе</figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <a data-fancybox="electrical"
+                               href="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=1200">
+                                <img src="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=400"
+                                     srcset="https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=300 300w,
+                                             https://images.unsplash.com/photo-1544724569-5f546fd6f2b5?w=520 520w"
+                                     sizes="(max-width: 720px) 45vw, 260px"
+                                     alt="Электроплата" loading="lazy" decoding="async">
+                            </a>
+                            <figcaption>Электроплата</figcaption>
+                        </figure>
+                    </div>
                 </div>
-            </div>
 
-        </div>
-    </section>
+                <!-- Сантехника -->
+                <div id="plumbing-gallery" class="fancybox-gallery-group"
+                     role="tabpanel" aria-labelledby="tab-plumbing">
+                    <h3>Сантехника</h3>
+                    <div class="gallery-grid">
+                        <figure class="gallery-item">
+                            <a data-fancybox="plumbing"
+                               href="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=1200">
+                                <img src="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=400"
+                                     srcset="https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=300 300w,
+                                             https://images.unsplash.com/photo-1585704032915-c3400ca199e7?w=520 520w"
+                                     sizes="(max-width: 720px) 45vw, 260px"
+                                     alt="Кухонная мойка" loading="lazy" decoding="async">
+                            </a>
+                            <figcaption>Кухонная мойка</figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <a data-fancybox="plumbing"
+                               href="https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=1200">
+                                <img src="https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=400"
+                                     srcset="https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=300 300w,
+                                             https://images.unsplash.com/photo-1604014237800-1c9102c219da?w=520 520w"
+                                     sizes="(max-width: 720px) 45vw, 260px"
+                                     alt="Современная сантехника" loading="lazy" decoding="async">
+                            </a>
+                            <figcaption>Современная сантехника</figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <a data-fancybox="plumbing"
+                               href="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=1200">
+                                <img src="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=400"
+                                     srcset="https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=300 300w,
+                                             https://images.unsplash.com/photo-1595428774223-ef52624120d2?w=520 520w"
+                                     sizes="(max-width: 720px) 45vw, 260px"
+                                     alt="Монтаж труб" loading="lazy" decoding="async">
+                            </a>
+                            <figcaption>Монтаж труб</figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <a data-fancybox="plumbing"
+                               href="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=1200">
+                                <img src="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=400"
+                                     srcset="https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=300 300w,
+                                             https://images.unsplash.com/photo-1507089947368-19c1da9775ae?w=520 520w"
+                                     sizes="(max-width: 720px) 45vw, 260px"
+                                     alt="Ремонт ванной" loading="lazy" decoding="async">
+                            </a>
+                            <figcaption>Ремонт ванной</figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <a data-fancybox="plumbing"
+                               href="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=1200">
+                                <img src="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=400"
+                                     srcset="https://images.unsplash.com/photo-1620626011761-996317b8d101?w=300 300w,
+                                             https://images.unsplash.com/photo-1620626011761-996317b8d101?w=520 520w"
+                                     sizes="(max-width: 720px) 45vw, 260px"
+                                     alt="Водонагреватель" loading="lazy" decoding="async">
+                            </a>
+                            <figcaption>Водонагреватель</figcaption>
+                        </figure>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
 
     <!-- ===== FOOTER ===== -->
     <footer class="site-footer">
@@ -166,10 +232,38 @@
                 </div>
                 <div class="footer-section">
                     <h3>Контакты</h3>
-                    <p>Email: info@example.com</p>
-                    <p>Телефон: +7 918 946 6993</p>
-                    <p>Telegram: @example</p>
-                    <p>WhatsApp: +7 918 946 6993</p>
+                    <div class="contact-list">
+                        <a class="contact-link" href="mailto:info@example.com">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22 6 12 13 2 6"/>
+                            </svg>
+                            info@example.com
+                        </a>
+                        <a class="contact-link" href="tel:+79189466993">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.9.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            +7 918 946 69 93
+                        </a>
+                        <a class="contact-link" href="https://t.me/TON_iKi_TON" target="_blank" rel="noopener">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                            Telegram: @TON_iKi_TON
+                        </a>
+                        <a class="contact-link" href="https://wa.me/79189466993" target="_blank" rel="noopener">
+                            <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                 stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/>
+                            </svg>
+                            WhatsApp
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -182,7 +276,7 @@
     <button class="theme-toggle-mobile" id="themeToggleMobile"
             aria-label="Переключить тему" aria-pressed="false">
         <svg class="theme-icon theme-icon-sun" width="22" height="22"
-             viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+             viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <circle cx="10" cy="10" r="4" stroke="currentColor" stroke-width="2"/>
             <path d="M10 2V4M10 16V18M18 10H16M4 10H2
                      M15.657 4.343L14.243 5.757
@@ -192,17 +286,18 @@
                   stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
         </svg>
         <svg class="theme-icon theme-icon-moon" width="22" height="22"
-             viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+             viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
                   stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
         </svg>
     </button>
 
     <!-- Scripts -->
-    <script src="js/app.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
+    <script src="js/app.js" defer></script>
     <script>
-        $(document).ready(function () {
+        window.addEventListener('DOMContentLoaded', function () {
             $('[data-fancybox]').fancybox({
                 buttons: ['zoom', 'slideShow', 'fullScreen', 'thumbs', 'close'],
                 loop: true,
